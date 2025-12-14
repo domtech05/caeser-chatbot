@@ -1,0 +1,224 @@
+/* page frame */
+html, body, #root { height: 100%; }
+body { margin: 0; background: var(--bg); font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color: var(--text-dark); }
+
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* header */
+.header {
+  height: 92px;
+  background: var(--header);
+  display: flex;
+  align-items: center;
+  padding: 0 22px;
+  box-sizing: border-box;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brandLogo {
+  width: 120px;
+  height: 48px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.15);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.headerSpacer { flex: 1; }
+
+.helpBtn {
+  background: #b43a2e;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.15) inset;
+}
+
+/* layout below header */
+.main {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 120px; /* space for composer */
+  box-sizing: border-box;
+}
+
+/* side pause button */
+.sideBtn {
+  position: absolute;
+  left: 14px;
+  top: 24px;
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
+  background: #b43a2e;
+  border: 3px solid #7a1f18;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.sideBtn .bars {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 8px;
+}
+.sideBtn .bars span {
+  width: 6px;
+  height: 22px;
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+/* chat container */
+.chatShell {
+  width: min(980px, calc(100% - 120px));
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.ruleLine {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--line);
+  width: 60%;
+  margin: 10px auto;
+}
+
+/* message rows */
+.row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.row.bot { justify-content: flex-start; }
+.row.user { justify-content: flex-end; }
+
+.avatar {
+  width: 86px;
+  height: 86px;
+  border-radius: 999px;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  border: 6px solid var(--accent);
+  box-sizing: border-box;
+  flex: 0 0 auto;
+}
+
+.avatarInner {
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.08);
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  color: #111;
+}
+
+.botBubbleWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.botAccentPip {
+  width: 6px;
+  height: 26px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.bubble {
+  padding: 14px 18px;
+  border-radius: 999px;
+  max-width: 520px;
+  white-space: pre-wrap;
+  line-height: 1.35;
+}
+
+.bubble.bot {
+  background: var(--bubble-bot);
+  color: #fff;
+  font-weight: 600;
+}
+
+.bubble.user {
+  background: var(--bubble-user);
+  color: var(--muted);
+  border: 2px solid rgba(0,0,0,0.04);
+  font-weight: 700;
+  min-width: 220px;
+  text-align: center;
+}
+
+/* composer (bottom input) */
+.composer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 22px;
+  display: flex;
+  justify-content: center;
+  pointer-events: none; /* only inner should be clickable */
+}
+
+.composerInner {
+  width: min(980px, calc(100% - 120px));
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.inputPill {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: var(--header);
+  border-radius: 999px;
+  padding: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  border-left: 10px solid var(--accent);
+}
+
+.inputPill input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 14px 16px;
+  border-radius: 999px;
+  font-size: 1rem;
+}
+
+.submitBtn {
+  border: none;
+  background: #b43a2e;
+  color: #fff;
+  font-weight: 900;
+  padding: 16px 26px;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.15) inset;
+  letter-spacing: 0.5px;
+}
+.submitBtn:disabled { opacity: 0.6; cursor: not-allowed; }
