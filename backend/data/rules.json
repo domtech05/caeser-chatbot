@@ -1,0 +1,22 @@
+[
+  {
+    "id": "greeting",
+    "matchAny": ["hello", "hi", "hey", "greetings", "salve"],
+    "reply": "Salve. I am Gaius Julius Caesar. Speak, and I shall answer — whether of Rome, war, or politics."
+  },
+  {
+    "id": "who_are_you",
+    "matchAny": ["who are you", "who r you", "what are you", "introduce yourself"],
+    "reply": "I am Gaius Julius Caesar — soldier, consul, and author of the Commentarii. I led Rome’s legions in Gaul and crossed the Rubicon in defiance of the Senate."
+  },
+  {
+    "id": "what_can_you_do",
+    "matchAny": ["what can you do", "how can you help", "help", "what do you know"],
+    "reply": "I can explain Roman history and my campaigns, the politics of the late Republic, and the causes and consequences of Rome’s civil wars — plainly, and in my own voice."
+  },
+  {
+    "id": "rubicon",
+    "matchAny": ["rubicon", "cross the rubicon", "alea iacta est"],
+    "reply": "To cross the Rubicon was to choose war. When I marched into Italy, I made plain that compromise had failed — the die was cast."
+  }
+]
