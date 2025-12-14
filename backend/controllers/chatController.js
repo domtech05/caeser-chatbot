@@ -1,30 +1,30 @@
+import { getScriptedReply } from '../services/scriptService.js';
 import { askModel } from '../services/llmService.js';
-import { findScriptedResponse } from '../data/scriptRules.js';
 
 /**
- * Express controller for handling chat messages.
+ * Handle /api/message
  * @param {import('express').Request} req
  * @param {import('express').Response} res
- * @param {import('express').NextFunction} next
  */
-export async function handleChatMessage(req, res, next) {
+export async function handleChatMessage(req, res) {
+    const { text } = req.body;
+
+    if (!text || typeof text !== 'string') {
+        return res.status(400).json({ error: "Missing or invalid 'text' in request body." });
+    }
+
+    // 1) Scripted JSON rules first
+    const scripted = getScriptedReply(text);
+    if (scripted) {
+        return res.json({ reply: scripted, source: 'script' });
+    }
+
+    // 2) LLM fallback
     try {
-        const { text } = req.body;
-
-        if (!text || typeof text !== 'string') {
-            return res.status(400).json({ error: "Missing or invalid 'text' in request body." });
-        }
-
-        // 1) Try scripted response first
-        const scripted = findScriptedResponse(text);
-        if (scripted) {
-            return res.json({ reply: scripted });
-        }
-
-        // 2) Fall back to the LLM
         const reply = await askModel(text);
-        return res.json({ reply });
+        return res.json({ reply, source: 'llm' });
     } catch (err) {
-        next(err);
+        console.error('LLM error:', err);
+        return res.status(500).json({ error: 'Failed to get response from model.' });
     }
 }

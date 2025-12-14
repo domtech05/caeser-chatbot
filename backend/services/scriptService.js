@@ -1,14 +1,20 @@
 import fs from 'fs';
 import path from 'path';
-
-const rulesPath = path.join(process.cwd(), 'data', 'rules.json');
+import { fileURLToPath } from 'url';
 
 /**
- * Load scripting rules from JSON file.
- * Kept deliberately simple for coursework clarity.
+ * Resolve paths relative to this file (avoids WebStorm working-directory issues).
+ */
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const rulesPath = path.join(__dirname, '..', 'data', 'rules.json');
+
+/**
+ * Load scripting rules from JSON.
  * @returns {Array<{id:string, matchAny:string[], reply:string}>}
  */
-export function loadRules() {
+function loadRules() {
     const raw = fs.readFileSync(rulesPath, 'utf-8');
     return JSON.parse(raw);
 }
@@ -23,9 +29,8 @@ export function getScriptedReply(userText) {
     const rules = loadRules();
 
     for (const rule of rules) {
-        if (rule.matchAny?.some((p) => text.includes(p.toLowerCase()))) {
-            return rule.reply;
-        }
+        const matched = rule.matchAny?.some((p) => text.includes(p.toLowerCase()));
+        if (matched) return rule.reply;
     }
 
     return null;
