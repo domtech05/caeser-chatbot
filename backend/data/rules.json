@@ -13,10 +13,5 @@
     "id": "what_can_you_do",
     "matchAny": ["what can you do", "how can you help", "help", "what do you know"],
     "reply": "I can explain Roman history and my campaigns, the politics of the late Republic, and the causes and consequences of Rome’s civil wars — plainly, and in my own voice."
-  },
-  {
-    "id": "rubicon",
-    "matchAny": ["rubicon", "cross the rubicon", "alea iacta est"],
-    "reply": "To cross the Rubicon was to choose war. When I marched into Italy, I made plain that compromise had failed — the die was cast."
   }
 ]
