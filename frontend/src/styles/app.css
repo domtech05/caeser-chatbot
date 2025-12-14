@@ -16,6 +16,9 @@ body { margin: 0; background: var(--bg); font-family: system-ui, -apple-system, 
   align-items: center;
   padding: 0 22px;
   box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 .brand {
@@ -59,35 +62,9 @@ body { margin: 0; background: var(--bg); font-family: system-ui, -apple-system, 
   box-sizing: border-box;
 }
 
-/* side pause button */
-.sideBtn {
-  position: absolute;
-  left: 14px;
-  top: 24px;
-  width: 58px;
-  height: 58px;
-  border-radius: 14px;
-  background: #b43a2e;
-  border: 3px solid #7a1f18;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-}
-.sideBtn .bars {
-  display: grid;
-  grid-auto-flow: column;
-  gap: 8px;
-}
-.sideBtn .bars span {
-  width: 6px;
-  height: 22px;
-  background: var(--accent);
-  border-radius: 4px;
-}
-
 /* chat container */
 .chatShell {
-  width: min(980px, calc(100% - 120px));
+  width: min(980px, calc(100% - 60px));
   background: transparent;
   display: flex;
   flex-direction: column;
@@ -150,7 +127,7 @@ body { margin: 0; background: var(--bg); font-family: system-ui, -apple-system, 
 
 .bubble {
   padding: 14px 18px;
-  border-radius: 999px;
+  border-radius: 30px;
   max-width: 520px;
   white-space: pre-wrap;
   line-height: 1.35;
@@ -183,7 +160,7 @@ body { margin: 0; background: var(--bg); font-family: system-ui, -apple-system, 
 }
 
 .composerInner {
-  width: min(980px, calc(100% - 120px));
+  width: min(980px, calc(100% - 60px));
   display: flex;
   gap: 14px;
   align-items: center;
@@ -194,11 +171,10 @@ body { margin: 0; background: var(--bg); font-family: system-ui, -apple-system, 
   flex: 1;
   display: flex;
   align-items: center;
-  background: var(--header);
+  background: -webkit-linear-gradient(left, var(--accent), var(--header));
   border-radius: 999px;
   padding: 10px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  border-left: 10px solid var(--accent);
 }
 
 .inputPill input {

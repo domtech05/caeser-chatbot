@@ -2,7 +2,7 @@ function MessageRow({ role, text }) {
     if (role === 'user') {
         return (
             <div className="row user">
-                <div className="bubble user">…User</div>
+                <div className="bubble user">{text}</div>
             </div>
         );
     }
