@@ -1,11 +1,15 @@
 /* page frame */
 html, body, #root { height: 100%; }
-body { margin: 0; background: var(--bg); font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color: var(--text-dark); }
+body { margin: 0; background: var(--bg); font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: var(--text-dark); }
 
 .app {
   height: 100%;
   display: flex;
   flex-direction: column;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
 }
 
 .header {
@@ -116,6 +120,10 @@ body { margin: 0; background: var(--bg); font-family: system-ui, -apple-system, 
   border: 2px solid rgba(224,177,0,0.25);
   box-shadow: 0 12px 28px rgba(0,0,0,0.08);
   height: min-content;
+}
+
+.chatMessage {
+  font-weight: 400;
 }
 
 /* message rows */
