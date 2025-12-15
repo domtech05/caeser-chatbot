@@ -1,9 +1,14 @@
+import logo from '../assets/logo.png';
+
 function Header({ onHelp }) {
     return (
         <header className="header">
             <div className="brand">
-                {/* Replace this with your real logo image later */}
-                <div className="brandLogo">Talking<br/>Caesar</div>
+                <img
+                    src={logo}
+                    alt="Talking Caesar logo"
+                    className="headerLogo"
+                />
             </div>
 
             <div className="headerSpacer" />

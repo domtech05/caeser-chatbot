@@ -21,6 +21,13 @@ body { margin: 0; background: var(--bg); font-family: system-ui, -apple-system, 
   z-index: 999;
 }
 
+.headerLogo {
+  height: 48px;       /* adjust this if needed */
+  width: auto;
+  display: block;
+}
+
+
 .brand {
   display: flex;
   align-items: center;
