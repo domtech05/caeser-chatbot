@@ -22,7 +22,8 @@ function MessageRow({ role, text }) {
 
             <div className="botBubbleWrap">
                 <div className="botAccentPip" />
-                <div className="bubble bot">{text || 'Chatbot…'}</div>
+                <div className="bubble bot">{text}</div>
+
             </div>
         </div>
     );

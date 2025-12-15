@@ -8,8 +8,14 @@ import Composer from './components/Composer';
 import { sendMessage } from './api/chatApi';
 
 function App() {
-  const [messages, setMessages] = useState([]);
-  const [loading, setLoading] = useState(false);
+    const [messages, setMessages] = useState([
+        {
+            role: 'bot',
+            text: "Salve. I am Gaius Julius Caesar. Ask me about Rome, Gaul, the Senate, or the Rubicon."
+        }
+    ]);
+
+    const [loading, setLoading] = useState(false);
 
   async function handleSend(text) {
     setLoading(true);

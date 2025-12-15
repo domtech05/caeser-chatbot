@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import MessageRow from './MessageRow';
+import TypingIndicator from './TypingIndicator';
 
 function ChatView({ messages, loading }) {
     const endRef = useRef(null);
@@ -16,7 +17,7 @@ function ChatView({ messages, loading }) {
                 <MessageRow key={idx} role={m.role} text={m.text} />
             ))}
 
-            {loading && <MessageRow role="bot" text="Chatbot…" />}
+            {loading && <MessageRow role="bot" text={<TypingIndicator />}  />}
 
             <div className="ruleLine" />
             <div ref={endRef} />
