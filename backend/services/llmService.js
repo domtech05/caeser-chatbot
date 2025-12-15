@@ -28,7 +28,6 @@ export async function askModel(userPrompt) {
     }
 
     const persona = loadPersona();
-    console.log('Persona loaded:', persona?.name);
     const systemPrompt = persona.systemPrompt;
 
     const resp = await fetch(HF_URL, {
