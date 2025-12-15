@@ -1,3 +1,5 @@
+import caesarAvatar from '../assets/caesar.png';
+
 function MessageRow({ role, text }) {
     if (role === 'user') {
         return (
@@ -11,8 +13,11 @@ function MessageRow({ role, text }) {
     return (
         <div className="row bot">
             <div className="avatar" aria-hidden="true">
-                {/* Replace this with Caesar head image later */}
-                <div className="avatarInner">C</div>
+                <img
+                    src={caesarAvatar}
+                    alt=""
+                    className="avatarImg"
+                />
             </div>
 
             <div className="botBubbleWrap">
