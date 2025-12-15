@@ -6,16 +6,18 @@ import Header from './components/Header';
 import ChatView from './components/ChatView';
 import Composer from './components/Composer';
 import { sendMessage } from './api/chatApi';
+import HelpPopup from './components/HelpPopup'
 
 function App() {
     const [messages, setMessages] = useState([
         {
             role: 'bot',
-            text: "Salve. I am Gaius Julius Caesar. Ask me about Rome, Gaul, the Senate, or the Rubicon."
+            text: "Salve. I am Gaius Julius Caesar. Ask me about Rome, Gaul, the Senate, or the Rubicon.",
         }
     ]);
 
     const [loading, setLoading] = useState(false);
+    const [showHelp, setShowHelp] = useState(false);
 
   async function handleSend(text) {
     setLoading(true);
@@ -32,7 +34,7 @@ function App() {
   }
 
   function onHelp() {
-    alert("Help: Ask Caesar about Rome, the Senate, Gaul, or the Rubicon.");
+    setShowHelp((prev) => !prev);
   }
 
   return (
@@ -44,6 +46,9 @@ function App() {
         </main>
 
         <Composer onSend={handleSend} disabled={loading} />
+
+        {showHelp && <HelpPopup onClose={() => setShowHelp(false)} />}
+
       </div>
   );
 }
