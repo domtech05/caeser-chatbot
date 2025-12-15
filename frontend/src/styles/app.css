@@ -78,14 +78,6 @@ body { margin: 0; background: var(--bg); font-family: system-ui, -apple-system, 
   box-shadow: 0 12px 28px rgba(0,0,0,0.08);
 }
 
-.ruleLine {
-  height: 6px;
-  border-radius: 999px;
-  background: var(--line);
-  width: 60%;
-  margin: 10px auto;
-}
-
 /* message rows */
 .row {
   display: flex;

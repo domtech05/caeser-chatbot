@@ -11,15 +11,12 @@ function ChatView({ messages, loading }) {
 
     return (
         <div className="chatShell">
-            <div className="ruleLine" />
-
             {messages.map((m, idx) => (
                 <MessageRow key={idx} role={m.role} text={m.text} />
             ))}
 
             {loading && <MessageRow role="bot" text={<TypingIndicator />}  />}
 
-            <div className="ruleLine" />
             <div ref={endRef} />
         </div>
     );
