@@ -87,7 +87,6 @@ body { margin: 0; background: var(--bg); font-family: system-ui, -apple-system, 
 
 .row.bot {
   justify-content: flex-start;
-  margin-top: 10px;
 }
 .row.user { justify-content: flex-end; }
 
@@ -124,6 +123,7 @@ body { margin: 0; background: var(--bg); font-family: system-ui, -apple-system, 
   display: flex;
   align-items: center;
   gap: 10px;
+  margin: 10px 0;
 }
 
 .botAccentPip {
