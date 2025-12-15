@@ -9,7 +9,7 @@ body { margin: 0; background: var(--bg); font-family: system-ui, -apple-system, 
 }
 
 .header {
-  height: 92px;
+  height: 70px;
   background: var(--header);
   display: flex;
   align-items: center;
@@ -53,6 +53,7 @@ body { margin: 0; background: var(--bg); font-family: system-ui, -apple-system, 
   color: #fff;
   border: none;
   border-radius: 10px;
+  padding: 10px 20px;
 }
 .helpOverlay {
   position: fixed;
